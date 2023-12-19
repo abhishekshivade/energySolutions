@@ -1,0 +1,10 @@
+<div class="bg-blue-400 p-5 text-white flex justify-between items-center">
+    <h1>Dashboard</h1>
+
+    <button *ngIf="!activeUser" (click)="openLoginDialog()" class="bg-white text-black h-fit px-3 py-1 rounded-lg">Login</button>
+
+    <div *ngIf="activeUser">
+        <p *ngIf="activeUser">Welcome, {{activeUser.userName}}</p>
+        <p>Company : {{activeUser.company}}</p>
+    </div>
+</div>

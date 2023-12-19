@@ -1,0 +1,99 @@
+<div class="text-center border-3 border-black">
+  <h1 mat-dailog-title class="bg-blue-400 py-5 text-white">
+    {{ data._id ? "Edit User" : "Add User" }}
+  </h1>
+  <div mat-dialog-content>
+    <form [formGroup]="userForm" class="flex flex-col h-fit">
+      <mat-form-field class="flex flex-col">
+        <div class="flex flex-col">
+          <input
+            matInput
+            placeholder="User Name"
+            formControlName="userName"
+            class="rounded-lg outline-none border border-black px-3 w-64"
+          />
+          <mat-error *ngIf="userForm.get('userName')?.hasError('required')"
+            >User name is required</mat-error
+          >
+        </div>
+      </mat-form-field>
+      <mat-form-field class="flex flex-col">
+        <div class="flex flex-col">
+          <input
+            matInput
+            placeholder="Address"
+            formControlName="address"
+            class="rounded-lg outline-none border border-black px-3 w-64"
+          />
+          <mat-error *ngIf="userForm.get('address')?.hasError('required')"
+            >Address is required</mat-error
+          >
+        </div>
+      </mat-form-field>
+      <mat-form-field class="flex flex-col">
+        <div class="flex flex-col">
+          <input
+            matInput
+            placeholder="Mobile Number"
+            formControlName="mobileNumber"
+            class="rounded-lg outline-none border border-black px-3 w-64"
+          />
+          <mat-error *ngIf="userForm.get('mobileNumber')?.hasError('required')"
+            >Mobile Number is required</mat-error
+          >
+        </div>
+      </mat-form-field>
+      <mat-form-field class="flex flex-col">
+        <div class="flex flex-col">
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            class="rounded-lg outline-none border border-black px-3 w-64"
+          />
+          <mat-error *ngIf="userForm.get('email')?.hasError('required')"
+            >Email is required</mat-error
+          >
+        </div>
+      </mat-form-field>
+      <mat-form-field class="flex flex-col">
+        <div class="flex flex-col">
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            class="rounded-lg outline-none border border-black px-3 w-64"
+          />
+          <mat-error *ngIf="userForm.get('password')?.hasError('required')"
+            >Password is required</mat-error
+          >
+        </div>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="companiesControl">
+        <mat-label>Companies</mat-label>
+        <mat-select [formControl]="companiesControl" multiple>
+          <mat-option *ngFor="let company of companyList" [value]="company">{{
+            company
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+  <div mat-dialog-button class="flex justify-center text-white mb-5 mx-5 gap-5">
+    <button
+      mat-button
+      (click)="onSave()"
+      class="bg-green-500 px-3 py-1 rounded-lg"
+    >
+      Save
+    </button>
+    <button
+      mat-button
+      (click)="onCancel()"
+      class="bg-red-500 px-3 py-1 rounded-lg"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

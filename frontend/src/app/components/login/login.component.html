@@ -1,0 +1,38 @@
+<div class="text-center">
+  <h1 class="bg-blue-400 text-white py-5">Login</h1>
+  <form (ngSubmit)="login()" class="flex flex-col p-5 gap-5 px-auto">
+    <input
+      type="text"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Email"
+      required
+      class="outline-none border border-black rounded-lg px-3 py-1 w-60"
+    />
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Passwprd"
+      required
+      class="outline-none border border-black rounded-lg px-3 py-1 w-60"
+    />
+    <select
+      [(ngModel)]="selectedCompany"
+      name="company"
+      required
+      class="outline-none border border-black rounded-lg w-60 px-3 py-1.5"
+    >
+      <option value="" disabled selected>Select a Company</option>
+      <option *ngFor="let company of companyList" [value]="company">
+        {{ company }}
+      </option>
+    </select>
+    <button
+      type="submit"
+      class="bg-green-500 p-3 w-fit rounded-lg text-white mx-auto"
+    >
+      Login
+    </button>
+  </form>
+</div>
